@@ -774,8 +774,9 @@ configure_file(OpenFHEConfigVersion.cmake.in
 install(FILES
   "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/OpenFHEConfig.cmake"
   "${PROJECT_BINARY_DIR}/OpenFHEConfigVersion.cmake"
+  "${PROJECT_BINARY_DIR}/OpenFHETargets.cmake"
   DESTINATION "${INSTALL_CMAKE_DIR}" COMPONENT dev)
 
 # Install the export set for use with the install-tree
-install(EXPORT OpenFHETargets DESTINATION
+install(TARGETS Thrust rmm spdlog_header_only EXPORT OpenFHETargets DESTINATION
   "${INSTALL_CMAKE_DIR}" COMPONENT dev)

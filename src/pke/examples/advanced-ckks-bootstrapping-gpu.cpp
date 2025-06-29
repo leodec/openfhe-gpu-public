@@ -525,5 +525,9 @@ void BootstrapExample(uint32_t numSlots) {
     // std::cout << "Output after bootstrapping \n\t" << result << std::endl;
     std::cout << "Output precision after bootstrapping \n\t" << result->GetEncodingParams()->GetPlaintextModulus() - result->GetLogError() << std::endl;
 
+    std::vector<double> real_val = result->GetRealPackedValue();
+    for (size_t i = 0; i < numSlots; i++) {
+        assert (std::abs(real_val[i] - x[i]) < 5e-3);
+    }
     // return;
 }
